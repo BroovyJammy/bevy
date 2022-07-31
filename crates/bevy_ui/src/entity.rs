@@ -10,11 +10,14 @@ use bevy_ecs::{
     query::QueryItem,
 };
 use bevy_render::{
-    camera::Camera, extract_component::ExtractComponent, prelude::ComputedVisibility,
+    camera::Camera,
+    extract_component::ExtractComponent,
+    prelude::{Color, ComputedVisibility},
     view::Visibility,
 };
 use bevy_text::{Text, TextAlignment, TextSection, TextStyle};
 use bevy_transform::prelude::{GlobalTransform, Transform};
+use bevy_utils::default;
 
 /// The basic UI node
 #[derive(Bundle, Clone, Debug, Default)]
@@ -37,6 +40,44 @@ pub struct NodeBundle {
     pub visibility: Visibility,
     /// Algorithmically-computed indication of whether an entity is visible and should be extracted for rendering
     pub computed_visibility: ComputedVisibility,
+}
+
+impl NodeBundle {
+    pub fn styled(style: Style, color: impl Into<UiColor>) -> Self {
+        Self {
+            style,
+            color: color.into(),
+            ..default()
+        }
+    }
+
+    /// Returns a node without a background color and that will let interactions go through them
+    /// A container node is like a <div> element in HTML
+    pub fn container() -> Self {
+        Self {
+            color: Color::NONE.into(),
+            focus_policy: FocusPolicy::Pass,
+            ..default()
+        }
+    }
+
+    /// Returns this [`NodeBundle`] with a new [`Style`].
+    pub const fn with_style(mut self, style: Style) -> Self {
+        self.style = style;
+        self
+    }
+
+    /// Returns this [`NodeBundle`] with a new [`UiColor`].
+    pub fn with_color(mut self, color: impl Into<UiColor>) -> Self {
+        self.color = color.into();
+        self
+    }
+
+    /// Returns this [`NodeBundle`] with a new [`FocusPolicy`].
+    pub fn with_focus_policy(mut self, focus_policy: FocusPolicy) -> Self {
+        self.focus_policy = focus_policy;
+        self
+    }
 }
 
 /// A UI node that is an image
