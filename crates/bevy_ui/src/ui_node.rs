@@ -21,7 +21,7 @@ pub struct Node {
 
 /// An enum that describes possible types of value in flexbox layout options
 #[derive(Copy, Clone, PartialEq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum Val {
     /// No value defined
     #[default]
@@ -142,7 +142,7 @@ impl Default for Style {
 
 /// How items are aligned according to the cross axis
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum AlignItems {
     /// Items are aligned at the start
     FlexStart,
@@ -159,7 +159,7 @@ pub enum AlignItems {
 
 /// Works like [`AlignItems`] but applies only to a single item
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum AlignSelf {
     /// Use the value of [`AlignItems`]
     #[default]
@@ -180,7 +180,7 @@ pub enum AlignSelf {
 ///
 /// It only applies if [`FlexWrap::Wrap`] is present and if there are multiple lines of items.
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum AlignContent {
     /// Each line moves towards the start of the cross axis
     FlexStart,
@@ -203,7 +203,7 @@ pub enum AlignContent {
 ///
 /// For example English is written LTR (left-to-right) while Arabic is written RTL (right-to-left).
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum Direction {
     /// Inherit from parent node
     #[default]
@@ -218,7 +218,7 @@ pub enum Direction {
 ///
 /// Part of the [`Style`] component.
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum Display {
     /// Use Flexbox layout model to determine the position of this [`Node`].
     #[default]
@@ -232,7 +232,7 @@ pub enum Display {
 
 /// Defines how flexbox items are ordered within a flexbox
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum FlexDirection {
     /// Same way as text direction along the main axis
     #[default]
@@ -247,7 +247,7 @@ pub enum FlexDirection {
 
 /// Defines how items are aligned according to the main axis
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum JustifyContent {
     /// Pushed towards the start
     #[default]
@@ -266,7 +266,7 @@ pub enum JustifyContent {
 
 /// Whether to show or hide overflowing items
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Reflect, Serialize, Deserialize)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum Overflow {
     /// Show overflowing items
     #[default]
@@ -277,7 +277,7 @@ pub enum Overflow {
 
 /// The strategy used to position this node
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum PositionType {
     /// Relative to all other nodes with the [`PositionType::Relative`] value
     #[default]
@@ -290,7 +290,7 @@ pub enum PositionType {
 
 /// Defines if flexbox items appear on a single line or on multiple lines
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize, Reflect)]
-#[reflect_value(PartialEq, Serialize, Deserialize)]
+#[reflect(PartialEq, Serialize, Deserialize)]
 pub enum FlexWrap {
     /// Single line, will overflow if needed
     #[default]
