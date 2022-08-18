@@ -58,6 +58,7 @@
 //! - [`NonSendMut`] and `Option<NonSendMut>`
 //! - [`&World`](crate::world::World)
 //! - [`RemovedComponents`]
+//! - [`SystemName`]
 //! - [`SystemChangeTick`]
 //! - [`Archetypes`](crate::archetype::Archetypes) (Provides Archetype metadata)
 //! - [`Bundles`](crate::bundle::Bundles) (Provides Bundles metadata)
