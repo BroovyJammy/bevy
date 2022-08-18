@@ -34,7 +34,7 @@ pub mod prelude {
     pub use crate::std_traits::*;
     #[doc(hidden)]
     pub use crate::{
-        reflect_trait, GetField, GetTupleStructField, Reflect, ReflectDeserialize,
+        reflect_trait, FromReflect, GetField, GetTupleStructField, Reflect, ReflectDeserialize,
         ReflectSerialize, Struct, TupleStruct,
     };
 }
