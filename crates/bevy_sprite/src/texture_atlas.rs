@@ -1,8 +1,9 @@
 use crate::{Anchor, Rect};
 use bevy_asset::Handle;
 use bevy_ecs::component::Component;
+use bevy_ecs::reflect::ReflectComponent;
 use bevy_math::Vec2;
-use bevy_reflect::{Reflect, TypeUuid};
+use bevy_reflect::{FromReflect, Reflect, TypeUuid};
 use bevy_render::{color::Color, texture::Image};
 use bevy_utils::HashMap;
 
@@ -21,7 +22,8 @@ pub struct TextureAtlas {
     pub texture_handles: Option<HashMap<Handle<Image>, usize>>,
 }
 
-#[derive(Component, Debug, Clone, Reflect)]
+#[derive(Component, Debug, Clone, Reflect, FromReflect)]
+#[reflect(Component)]
 pub struct TextureAtlasSprite {
     pub color: Color,
     pub index: usize,

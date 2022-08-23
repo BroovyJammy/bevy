@@ -1,9 +1,11 @@
 use bevy_ecs::component::Component;
+use bevy_ecs::reflect::ReflectComponent;
 use bevy_math::Vec2;
-use bevy_reflect::Reflect;
+use bevy_reflect::{FromReflect, Reflect};
 use bevy_render::color::Color;
 
-#[derive(Component, Debug, Default, Clone, Reflect)]
+#[derive(Component, Debug, Default, Clone, Reflect, FromReflect)]
+#[reflect(Component)]
 #[repr(C)]
 pub struct Sprite {
     /// The sprite's color tint
@@ -21,7 +23,7 @@ pub struct Sprite {
 
 /// How a sprite is positioned relative to its [`Transform`](bevy_transform::components::Transform).
 /// It defaults to `Anchor::Center`.
-#[derive(Debug, Clone, Default, Reflect)]
+#[derive(Debug, Clone, Default, Reflect, FromReflect)]
 #[doc(alias = "pivot")]
 pub enum Anchor {
     #[default]
